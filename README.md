@@ -9,6 +9,10 @@ npx create-next-app@14 wild-oasis-website
 
 npm install next@latest react@latest react-dom@latest eslint-config-next@latest
 
+## Supabase
+
+npm i @supabase/supabase-js
+
 ## doc
 
 https://nextjs.org/docs
