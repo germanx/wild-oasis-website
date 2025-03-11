@@ -7,6 +7,10 @@ export const metadata = {
   title: 'Cabins',
 };
 
+// dynamic rendering
+// export const revalidate = 0;
+export const revalidate = 3600;
+
 export default function Page() {
   return (
     <div>
