@@ -5,9 +5,9 @@ import { supabase } from './supabase';
 /////////////
 // GET
 
-export async function getCabin(id) {
+export async function getApplication(id) {
   const { data, error } = await supabase
-    .from('cabins')
+    .from('applications')
     .select('*')
     .eq('id', id)
     .single();
@@ -23,6 +23,27 @@ export async function getCabin(id) {
   return data;
 }
 
+export const getApplications = async function () {
+  const { data, error } = await supabase
+    .from('applications')
+    .select('id, name, descr, business_line')
+    .order('name');
+
+  if (error) throw new Error('Applications could not be loaded');
+  return data;
+};
+
+export const getBusinessLines = async function () {
+  const { data, error } = await supabase
+    .from('business_lines')
+    .select('id, name, descr')
+    .order('name');
+
+  if (error) throw new Error('Business line could not be loaded');
+  return data;
+};
+
+/* Cabins */
 export async function getCabinPrice(id) {
   const { data, error } = await supabase
     .from('cabins')
@@ -36,20 +57,6 @@ export async function getCabinPrice(id) {
 
   return data;
 }
-
-export const getCabins = async function () {
-  const { data, error } = await supabase
-    .from('cabins')
-    .select('id, name, maxCapacity, regularPrice, discount, image')
-    .order('name');
-
-  if (error) {
-    console.error(error);
-    throw new Error('Cabins could not be loaded');
-  }
-
-  return data;
-};
 
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {

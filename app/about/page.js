@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import image1 from '@/public/about-1.jpg';
 import image2 from '@/public/about-2.jpg';
-import CabinCount from '../_components/CabinCount';
 
 // 1 day
 export const revalidate = 86400;
@@ -14,7 +13,7 @@ export default function Page() {
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-4xl mb-10 text-blue-400 font-medium">
           Welcome to The Wild Oasis
         </h1>
 
@@ -26,12 +25,7 @@ export default function Page() {
             cabins. It&apos;s about the experience of reconnecting with nature
             and enjoying simple pleasures with family.
           </p>
-          <p>
-            Our <CabinCount /> luxury cabins provide a cozy base, but the real
-            freedom and peace you&apos;ll find in the surrounding mountains.
-            Wander through lush forests, breathe in the fresh air, and watch the
-            stars twinkle above from the warmth of a campfire or your hot tub.
-          </p>
+
           <p>
             This is where memorable moments are made, surrounded by
             nature&apos;s splendor. It&apos;s a place to slow down, relax, and

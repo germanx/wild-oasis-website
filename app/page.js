@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import bg from '@/public/bg.png';
+import bg from '@/public/dc-4.jpg';
 
 export default function Page() {
   return (
@@ -16,13 +16,13 @@ export default function Page() {
 
       <div className="relative z-10 text-center">
         <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
-          Welcome to paradise.
+          IT Architecture
         </h1>
         <Link
-          href="/cabins"
-          className="bg-accent-500 px-8 py-6 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
+          href="/applications"
+          className="bg-blue-400 px-8 py-6 text-primary-800 text-lg font-semibold hover:bg-blue-500 transition-all"
         >
-          Explore luxury cabins
+          Explore Repository
         </Link>
       </div>
     </main>

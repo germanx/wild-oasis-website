@@ -1,17 +1,20 @@
 'use client';
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useState } from 'react';
 
-function Filter() {
+function Filter({ filterList }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const activeFilter = searchParams.get('capacity') ?? 'all';
+  const [filters, setFilters] = useState(filterList);
+
+  const activeFilter = searchParams.get('filter') ?? 'all';
 
   function handleFilter(filter) {
     const params = new URLSearchParams(searchParams);
-    params.set('capacity', filter);
+    params.set('filter', filter);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
@@ -22,29 +25,19 @@ function Filter() {
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
-        All cabins
+        All
       </Button>
-      <Button
-        filter="small"
-        handleFilter={handleFilter}
-        activeFilter={activeFilter}
-      >
-        1&mdash;3 guests
-      </Button>
-      <Button
-        filter="medium"
-        handleFilter={handleFilter}
-        activeFilter={activeFilter}
-      >
-        4&mdash;7 guests
-      </Button>
-      <Button
-        filter="large"
-        handleFilter={handleFilter}
-        activeFilter={activeFilter}
-      >
-        8&mdash;12 guests
-      </Button>
+
+      {filters.map((item) => (
+        <Button
+          filter={item}
+          handleFilter={handleFilter}
+          activeFilter={activeFilter}
+          key={item}
+        >
+          {item}
+        </Button>
+      ))}
     </div>
   );
 }

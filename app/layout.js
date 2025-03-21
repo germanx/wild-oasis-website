@@ -12,9 +12,9 @@ const josefin = Josefin_Sans({
 
 export const metadata = {
   title: {
-    template: '%s / The Wild Oasis',
-    default: 'Welcome / The Wild Oasis',
-    description: 'Luxurious cabin hotel, located in the heart of Russia',
+    template: '%s / Meta',
+    default: 'Meta',
+    description: 'IT architecture repository',
   },
 };
 
